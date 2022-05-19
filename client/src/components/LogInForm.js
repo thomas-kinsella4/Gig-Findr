@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/user";
+import NavBar from "./NavBar";
 
 function LogInForm() {
 
@@ -39,7 +40,7 @@ function LogInForm() {
                     res.json().then(data => {
                         // setErrors(null)
                         setUser(data)
-                        navigateTo("/usertest")
+                        navigateTo("/")
                     })
                 } else {
                     res.json().then(res => {
@@ -65,7 +66,7 @@ function LogInForm() {
                     res.json().then(data => {
                         // setErrors(null)
                         setUser(data)
-                        navigateTo("/usertest")
+                        navigateTo("/")
                     })
                 } else {
                     res.json().then(res => {
@@ -86,6 +87,7 @@ function LogInForm() {
 
     return (
         <div style={{"padding" : "2em"}}>
+            <NavBar />
         <select onChange={handleLogInSelect}>
             <option name="artist" value="artist">Artist</option>
             <option name="agent" value="agent">Agent</option>

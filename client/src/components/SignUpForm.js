@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/user";
+import NavBar from "./NavBar";
 
 function SignUpForm() {
 
@@ -89,6 +90,7 @@ function SignUpForm() {
 
     return (
         <>
+        <NavBar />
             <h3>Sign up</h3>
             <select onChange={handleSelectChange}>
                 <option name="artist" value="artist">Artist</option>

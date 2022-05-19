@@ -1,4 +1,8 @@
-
+#post {
+  border: 2px solid red;
+  max-width: fit-content;
+  margin: 2em;
+}
 
 
 

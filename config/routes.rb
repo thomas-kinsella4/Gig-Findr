@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :gigs
+  resources :gig_applications
   resources :agents
   resources :artists
 
