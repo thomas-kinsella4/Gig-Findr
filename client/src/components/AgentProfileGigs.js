@@ -31,6 +31,7 @@ function AgentProfileGigs({ gig }) {
             null
         }
         <div id="post">
+            {gig.gig_applications.length > 0 ? <h1 style={{color: "red"}}>ATTentioN</h1> : null}
             <h2>Gig at {gig.venue}</h2>
             <h3>{gig.date}</h3>
             <h3>{gig.time}pm</h3>

@@ -33,7 +33,7 @@ function NavBar() {
             : 
                 <>
                 <button onClick={() => navigateTo("/artist/profile")}>Profile</button>
-                <button>Your Shows</button>
+                <button onClick={() => navigateTo("/artist/shows")}>Your Shows</button>
                 <button onClick={() => navigateTo("/")}>Home</button>
                 <button onClick={handleLogOut}>Logout</button>
                 </>

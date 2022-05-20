@@ -1,6 +1,6 @@
 class GigsController < ApplicationController
 
-    before_action :find_gig, only: [:show]
+    before_action :find_gig, only: [:show, :update, :destroy]
 
     def index
         render json: Gig.all, status: :ok
@@ -15,6 +15,20 @@ class GigsController < ApplicationController
         render json: @gig, status: :accepted
     end
 
+    def create
+        gig = Gig.create!(gig_params)
+        render json: gig, status: :created
+    end
+
+    def destroy
+        @gig.destroy
+        render json: {}, status: :no_content 
+    end
+
+    # def artist_gigs
+    #     artistGig = Gig.find
+    # end
+
     private 
 
     def find_gig
@@ -22,7 +36,7 @@ class GigsController < ApplicationController
     end
 
     def gig_params
-        params.permit(:venue, :date, :time, :genres, :description)
+        params.permit(:venue, :date, :time, :genres, :description, :agent_id)
     end
 
 end

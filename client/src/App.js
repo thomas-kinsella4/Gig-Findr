@@ -6,8 +6,11 @@ import LogInForm from './components/LogInForm';
 import MainFeed from './components/MainFeed';
 import AgentProfile from './components/AgentProfile';
 import ArtistProfile from './components/ArtistProfile';
+import Loading from './components/Loading';
+import ArtistsShows from './components/ArtistsShows';
 import { useEffect, useContext } from "react";
 import { UserContext } from "./context/user";
+import ArtistsShowsContainer from './components/ArtistsShowsContainer';
 
 
 function App() {
@@ -49,6 +52,9 @@ function App() {
         <Route path="/signup" element={<SignUpForm />} />
         <Route path="/agent/profile" element={<AgentProfile />} />
         <Route path="/artist/profile" element={<ArtistProfile />} />
+        <Route path="/artist/shows" element={<ArtistsShowsContainer />} />
+        <Route path="/updating" element={<Loading message={"Updating your changes..."} destination={"/agent/profile"}/>} />
+        <Route path="/creating" element={<Loading message={"Creating..."} destination={"/agent/profile"}/>} />
       </Routes>
     </Router>
     )

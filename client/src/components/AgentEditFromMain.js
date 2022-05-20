@@ -1,23 +1,22 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function AgentEditGig({ closeUpModal, selectedEdit }) {
+function AgentEditFromMain({ gig, closeEditModal }) {
 
     let navigateTo = useNavigate();
-
 
     const [editFormData, setEditFormData] = useState({})
 
     function handleEditInputs(e) {
-            setEditFormData({
-                ...editFormData,
-                [e.target.name] : e.target.value
-            })
-    }
+        setEditFormData({
+            ...editFormData,
+            [e.target.name] : e.target.value
+        })
+    }   
 
     function handleEditSubmit(e) {
         e.preventDefault()
-        fetch(`/gigs/${selectedEdit.id}`, {
+        fetch(`/gigs/${gig.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -33,7 +32,7 @@ function AgentEditGig({ closeUpModal, selectedEdit }) {
      }
 
     function handleDeleteGig() {
-        fetch(`/gigs/${selectedEdit.id}`, {
+        fetch(`/gigs/${gig.id}`, {
             method: "DELETE"
         })
         .then(() => navigateTo("/updating"))
@@ -42,19 +41,19 @@ function AgentEditGig({ closeUpModal, selectedEdit }) {
 
     return (
         <>
-        <button onClick={closeUpModal}>X</button>
-        <h1>Edit Your Gig at {selectedEdit.venue}</h1>
+        <button onClick={closeEditModal}>X</button>
+        <h1>Edit Your Gig at {gig.venue}</h1>
         <form onSubmit={handleEditSubmit}>
             <label>Venue:</label>
-            <input placeholder={selectedEdit.venue} name="venue" onChange={handleEditInputs} value={editFormData.venue}></input>
+            <input placeholder={gig.venue} name="venue" onChange={handleEditInputs} value={editFormData.venue}></input>
             <label>Date:</label>
-            <input placeholder={selectedEdit.date} name="date" onChange={handleEditInputs} value={editFormData.date}></input>
+            <input placeholder={gig.date} name="date" onChange={handleEditInputs} value={editFormData.date}></input>
             <label>Time:</label>
-            <input placeholder={selectedEdit.time} name="time" onChange={handleEditInputs} value={editFormData.time}></input>
+            <input placeholder={gig.time} name="time" onChange={handleEditInputs} value={editFormData.time}></input>
             <label>Genres:</label>
-            <input placeholder={selectedEdit.genres} name="genres" onChange={handleEditInputs} value={editFormData.genres}></input>
+            <input placeholder={gig.genres} name="genres" onChange={handleEditInputs} value={editFormData.genres}></input>
             <label>Description:</label>
-            <input placeholder={selectedEdit.description} name="description" onChange={handleEditInputs} value={editFormData.description}></input>
+            <input placeholder={gig.description} name="description" onChange={handleEditInputs} value={editFormData.description}></input>
             <button>Submit Changes</button>
         </form>
             <button onClick={handleDeleteGig}>Delete Gig</button>
@@ -62,4 +61,4 @@ function AgentEditGig({ closeUpModal, selectedEdit }) {
     )
 }
 
-export default AgentEditGig;
+export default AgentEditFromMain;
