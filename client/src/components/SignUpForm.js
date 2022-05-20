@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/user";
-import NavBar from "./NavBar";
+
 
 function SignUpForm() {
 
-    let navigate = useNavigate();
+    let navigateTo = useNavigate();
 
     const [formData, setFormData] = useState({
         username: "",
@@ -15,7 +15,7 @@ function SignUpForm() {
 
     const [user, setUser] = useContext(UserContext);
     const [selectedType, setSelectedType] = useState("artist");
-    // const [isAgent, setIsAgent] = useState(true)
+    const [errors, setErrors] = useState("");
    
 
 
@@ -45,14 +45,12 @@ function SignUpForm() {
         {
             if (res.ok) {
                 res.json().then(data => {
-                    // setErrors(null)
+                    setErrors(null)
                     setUser(data)
-                    console.log(data)
                 })
             } else {
                 res.json().then(res => {
-                    // setErrors(res.errors)
-                    // setShowErrors(true)
+                    setErrors(res.errors)  
                 })
             }
         })
@@ -71,14 +69,12 @@ function SignUpForm() {
         {
             if (res.ok) {
                 res.json().then(data => {
-                    // setErrors(null)
+                    setErrors(null)
                     setUser(data)
-                    console.log(data)
                 })
             } else {
                 res.json().then(res => {
-                    // setErrors(res.errors)
-                    // setShowErrors(true)
+                    setErrors(res.errors)
                 })
             }
         })
@@ -90,19 +86,20 @@ function SignUpForm() {
 
     return (
         <>
-        <NavBar />
             <h3>Sign up</h3>
             <select onChange={handleSelectChange}>
                 <option name="artist" value="artist">Artist</option>
                 <option name="agent" value="agent">Agent</option>
             </select>
+            <button onClick={() => navigateTo("/login")}>Back to login</button>
+            {errors !== "" ? <p className="error-msg">{errors}</p> : null}
         <form onSubmit={handleSignUpSubmit}>
             <label>Username:</label>
-            <input type="text" value={formData.username} name="username" onChange={handleFormChange}></input>
+            <input type="text" value={formData.username} name="username" onChange={handleFormChange} required></input>
             <label>Password:</label>
-            <input type="text" value={formData.password} name="password" onChange={handleFormChange}></input>
+            <input type="text" value={formData.password} name="password" onChange={handleFormChange} required></input>
             <label>Confirm Password:</label>
-            <input type="text" value={formData.confirm_password} name="confirm_password" onChange={handleFormChange}></input>
+            <input type="text" value={formData.confirm_password} name="confirm_password" onChange={handleFormChange} required></input>
             <button>Sign Up</button>
         </form>
         </>

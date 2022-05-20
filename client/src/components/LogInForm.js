@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/user";
-import NavBar from "./NavBar";
 
 function LogInForm() {
 
@@ -11,10 +10,9 @@ function LogInForm() {
         username: "",
         password: ""
     });
-    
     const [user, setUser] = useContext(UserContext)
-
     const [selectedAccnt, setSelectedAccnt] = useState("artist")
+    const [errors, setErrors] = useState("");
 
     function handleChangeForm(e) {
         setFormData({
@@ -38,14 +36,13 @@ function LogInForm() {
             {
                 if (res.ok) {
                     res.json().then(data => {
-                        // setErrors(null)
+                        setErrors(null)
                         setUser(data)
                         navigateTo("/")
                     })
                 } else {
                     res.json().then(res => {
-                        // setErrors(res.errors)
-                        // setShowErrors(true)
+                        setErrors(res.error)   
                     })
                 }
             })
@@ -64,14 +61,13 @@ function LogInForm() {
             {
                 if (res.ok) {
                     res.json().then(data => {
-                        // setErrors(null)
+                        setErrors(null)
                         setUser(data)
                         navigateTo("/")
                     })
                 } else {
                     res.json().then(res => {
-                        // setErrors(res.errors)
-                        // setShowErrors(true)
+                        setErrors(res.error)
                     })
                 }
             })
@@ -87,7 +83,7 @@ function LogInForm() {
 
     return (
         <div style={{"padding" : "2em"}}>
-            <NavBar />
+        <h1>Log In</h1>
         <select onChange={handleLogInSelect}>
             <option name="artist" value="artist">Artist</option>
             <option name="agent" value="agent">Agent</option>
@@ -95,10 +91,10 @@ function LogInForm() {
         <button onClick={() => navigateTo("/signup")}>Sign up</button>
         <form onSubmit={handleLogInSubmit}>
             <label>Username:</label>
-            <input type="text" value={formData.username} name="username" onChange={handleChangeForm}></input>
+            <input type="text" value={formData.username} name="username" onChange={handleChangeForm} required></input>
             <label>Password:</label>
-            <input type="text" value={formData.password} name="password" onChange={handleChangeForm}></input>
-            <button>Log In</button>
+            <input type="password" value={formData.password} name="password" onChange={handleChangeForm} required></input>
+            <button>Log In</button> {errors !== "" ? <p className="error-msg">{errors}</p> : null}
         </form>
         </div>
     )

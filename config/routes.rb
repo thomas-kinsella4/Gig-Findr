@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get "/artist/me", to: "artists#show"
   get "/me", to: "agents#show"
 
+
   
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

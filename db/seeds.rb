@@ -33,7 +33,7 @@ Agent.create(
 end
 
 Gig.create(
-    agent_id: rand(1..11),
+    agent_id: 1,
     venue: "The Bitter End",
     time: 8,
     date: "06/03/2022",
@@ -42,7 +42,7 @@ Gig.create(
 )
 
 Gig.create(
-    agent_id: rand(1..11),
+    agent_id: 1,
     venue: "The Bowery Electric",
     time: 9,
     date: "06/12/2022",
@@ -51,7 +51,7 @@ Gig.create(
 )
 
 Gig.create(
-    agent_id: rand(1..11),
+    agent_id: 2,
     venue: "Pianos NYC",
     time: 11,
     date: "06/24/2022",

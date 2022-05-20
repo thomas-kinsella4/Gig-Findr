@@ -13,7 +13,7 @@ function NavBar() {
             method: "DELETE"
         })
         .then(() => {
-        navigateTo("/login") 
+        navigateTo("/") 
         setUser({})
         })
         .catch( error => console.log(error.message));
@@ -21,7 +21,25 @@ function NavBar() {
 
 
     return (
-        <button onClick={handleLogOut}>Logout</button>
+        <>
+        
+            <div className="navbar-div">
+                {user.isAgent === null ? 
+                <>
+                <button onClick={() => navigateTo("/agent/profile")}>Profile</button>
+                <button onClick={() => navigateTo("/")}>Home</button>
+                <button onClick={handleLogOut}>Logout</button> 
+                </>
+            : 
+                <>
+                <button onClick={() => navigateTo("/artist/profile")}>Profile</button>
+                <button>Your Shows</button>
+                <button onClick={() => navigateTo("/")}>Home</button>
+                <button onClick={handleLogOut}>Logout</button>
+                </>
+            }
+            </div>
+        </>
     )
 }
 

@@ -1,13 +1,15 @@
 import React, { useContext, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/user";
 import GigPostsContainer from "./GigPostsContainer";
 import NavBar from "./NavBar";
 
 function MainFeed() {
+
+    let navigateTo = useNavigate();
+
     const [user] = useContext(UserContext);
     const [gigData, setGigData] = useState([]);
-
-    console.log("user from mainfeed", user)
 
     useEffect(() => {
         fetch(`/gigs`)
@@ -19,11 +21,17 @@ function MainFeed() {
 
     return (
         <>
+        {!user.username ? 
+        <>
+        <button onClick={() => navigateTo("/login")}>LogIn/SignUp</button>
+        <h2>Welcome</h2>
+        </>
+        :
+        <>
         <NavBar />
-        {
-            user.isAgent === null ? <h1>Agent</h1> : <h1>Artist</h1>
-        }
         <h2>Greetings {user.username}</h2>
+        </>
+        }
         <GigPostsContainer gigData={gigData}/>
         </>
     )

@@ -8,9 +8,9 @@ class AgentsController < ApplicationController
     end
 
     def show
-        artist = Artist.find_by(id: session[:artist_id])
-        if artist
-            render json: artist
+        agent = Agent.find_by(id: session[:agent_id])
+        if agent
+            render json: agent, status: :ok
         else
             render json: { error: "Not authorized" }, status: :unauthorized
         end
