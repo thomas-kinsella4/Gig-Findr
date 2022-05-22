@@ -6,7 +6,7 @@ import AgentProfileGigs from "./AgentProfileGigs";
 import AgentCreateGig from "./AgentCreateGig";
 
 
-function AgentProfile() {
+function AgentProfile({ keepTrack }) {
 
     const [user, setUser] = useContext(UserContext);
     const [allGigs, setAllGigs] = useState([]);
@@ -32,7 +32,7 @@ function AgentProfile() {
     })
 
     const renderedGigs = filteredGigs.map((gig) => {
-        return <AgentProfileGigs key={gig.id} gig={gig}/>
+        return <AgentProfileGigs key={gig.id} gig={gig} keepTrack={keepTrack}/>
     })
 
     console.log("filtered: ", filteredGigs)

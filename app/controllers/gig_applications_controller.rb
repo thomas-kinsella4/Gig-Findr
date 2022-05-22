@@ -9,6 +9,10 @@ class GigApplicationsController < ApplicationController
     #     render json: @gig_app, status: :ok
     # end
 
+    def index
+        render json: GigApplication.all, status: :ok
+    end
+
     private
 
     def gig_app_params

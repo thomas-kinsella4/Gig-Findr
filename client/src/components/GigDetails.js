@@ -58,7 +58,7 @@ function GigDetails({ closeModal, selectedGig }) {
         <h3>{selectedGig.genres}</h3>
         <h3>{selectedGig.description}</h3>
         {user.music === null ? <button onClick={handleApplyClick}>Apply</button> : null}
-        {/* {!user ? <p>Log In Or Sign Up to apply</p> : null} */}
+        {!user.username ? <p>Log In Or Sign Up to apply</p> : null}
         </>       
     )
 }

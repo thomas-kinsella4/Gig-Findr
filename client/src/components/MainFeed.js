@@ -4,7 +4,7 @@ import { UserContext } from "../context/user";
 import GigPostsContainer from "./GigPostsContainer";
 import NavBar from "./NavBar";
 
-function MainFeed() {
+function MainFeed({ keepTrack }) {
 
     let navigateTo = useNavigate();
 
@@ -32,7 +32,7 @@ function MainFeed() {
         <h2>Greetings {user.username}</h2>
         </>
         }
-        <GigPostsContainer gigData={gigData}/>
+        <GigPostsContainer gigData={gigData} keepTrack={keepTrack}/>
         </>
     )
 }

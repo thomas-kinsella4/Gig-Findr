@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/user";
 import ArtistsShows from "./ArtistsShows";
+import NavBar from "./NavBar";
 
 
 
@@ -27,6 +28,7 @@ function ArtistsShowsContainer() {
 
     return (
         <>
+        <NavBar />
         <h1>{user.username}'s shows</h1>
         {renderedArtistGigs}
         </>
