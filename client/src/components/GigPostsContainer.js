@@ -8,6 +8,8 @@ function GigPostsContainer( { gigData, keepTrack } ) {
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedGig, setSelectedGig] = useState(NaN);
 
+    // console.log("from container: ", gigData)
+
     function openModal(gig) {
         setModalOpen(true);
         setSelectedGig(gig);

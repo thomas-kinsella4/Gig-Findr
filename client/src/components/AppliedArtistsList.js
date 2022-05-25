@@ -1,44 +1,51 @@
 import React, {useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 
-function AppliedArtistsList({ artist, filteredGigApps , keepTrack}) {
+function AppliedArtistsList({ gig, artist, filteredGigApps , keepTrack}) {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    //on initial click have modal pop up with pic bio name, have button
-    //with option to view full profile
+    console.log("filtered gig apps: ", filteredGigApps)
 
     let navigateTo = useNavigate();
 
-    //set selected artist, then filter gig apps to match the selected
-    //artist and return that gig
-
-    // const [selectedArtist, setSelectedArtist] = ([]);
 
     function handleViewClick() {
         keepTrack(artist)
         setIsModalOpen(true)
     }
 
-    // console.log(filteredGigApps.id)
 
-    // const mappedGigApps = filteredGigApps.filter((apps) => {
-    //     return apps.artist_id === selectedArtist.id
-    // })
-
-    // console.log(mappedGigApps)
-
-    // function selectArtist() {
-    //     const selectedArtistApp = filteredGigApps.filter((gig) => {
-    //         return gig.artist_id === artist.id
-    //     })
-    //     console.log(selectedArtistApp)
-    // }
+    function handleBookArtistClick() {
+        const filtered = filteredGigApps.filter((gigApp) => {
+            return gigApp.artist_id === artist.id
+        })
+        const mapped = filtered.map((app) => {
+            return app.id
+        })
+        fetch(`/gig_applications/${mapped[0]}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify({
+                isApproved : true
+            })
+        })
+        .then( res => res.json())
+        .then( data => {
+            console.log(data)
+            navigateTo("/booking")
+        })
+        .catch( error => console.log(error.message));
+    }
 
     return (
         <>
         <h1>{artist.username}</h1>
         <button onClick={() => handleViewClick()}>View {artist.username}'s profile</button>
+        <button onClick={handleBookArtistClick}>Book {artist.username}</button>
         {
             isModalOpen ?
             <>

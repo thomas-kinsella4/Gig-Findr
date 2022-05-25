@@ -91,6 +91,8 @@ function SignUpForm() {
                 <option name="artist" value="artist">Artist</option>
                 <option name="agent" value="agent">Agent</option>
             </select>
+            {selectedType === "artist" ? <p>You've selected to signup as an artist, you are looking to play shows</p> : null}
+            {selectedType === "agent" ? <p>You've selected to signup as an agent, you are looking to book artists to perfom at your venues</p> : null}
             <button onClick={() => navigateTo("/login")}>Back to login</button>
             {errors !== "" ? <p className="error-msg">{errors}</p> : null}
         <form onSubmit={handleSignUpSubmit}>

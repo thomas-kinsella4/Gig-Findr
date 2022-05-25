@@ -46,6 +46,8 @@ function App() {
       setSelectedArtist(artist)
     }
 
+    console.log("user from app:", user)
+
   return (
     <Router>
       <Routes>
@@ -58,6 +60,7 @@ function App() {
         <Route path="/view/artist" element={<AgentViewArtistProfile selectedArtist={selectedArtist}/>} />
         <Route path="/updating" element={<Loading message={"Updating your changes..."} destination={"/agent/profile"}/>} />
         <Route path="/creating" element={<Loading message={"Creating..."} destination={"/agent/profile"}/>} />
+        <Route path="/booking" element={<Loading message={"Confiming booking..."} destination={"/agent/profile"}/>} />
       </Routes>
     </Router>
     )

@@ -11,9 +11,10 @@ Rails.application.routes.draw do
 
   post "/artist/signup", to: "artists#create"
   post "/agent/signup", to: "agents#create"
-
+  
   get "/artist/me", to: "artists#show"
   get "/me", to: "agents#show"
+  get "/artist/:id", to: "artists#find"
 
 
   

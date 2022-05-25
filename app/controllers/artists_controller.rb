@@ -19,6 +19,11 @@ class ArtistsController < ApplicationController
         end
     end
 
+    def find
+        artist = Artist.find(params[:id])
+        render json: artist, status: :ok
+    end
+
     private 
 
     def artist_params

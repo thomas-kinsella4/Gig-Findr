@@ -5,9 +5,14 @@ import AgentViewApps from "./AgentViewApps";
 
 function GigPost({ gig, openModal, keepTrack  }) {
 
+    
     const [user] = useContext(UserContext);
     const [editModalOpen, setEditModalOpen] = useState(false);
     const [viewModalOpen, setViewModalOpen] = useState(false);
+    
+    const approvedGigs = gig.gig_applications.find((gig) => {
+        return gig.isApproved === true
+    })
 
     function openEditModal(){
         setEditModalOpen(true)
@@ -25,20 +30,17 @@ function GigPost({ gig, openModal, keepTrack  }) {
         setViewModalOpen(false)
     }
 
-
-
-    
     return (
         <>
         <div id="post">
-            {gig.agent_id === user.id && user.isAgent === null && gig.gig_applications.length > 0 ? <h1 style={{color: "red"}} onClick={() => openViewModal()}>ATTentioN</h1> : null}
+            {/* {approvedGigs.artist_id === user.id && user.isAgent === undefined && gig.gig_applications.length > 0 && approvedGigs ? <h1 style={{color: "green"}}>You have been BOOKED! for this show</h1> : null} */}
+            {gig.agent_id === user.id && user.isAgent === null && gig.gig_applications.length > 0 && approvedGigs ? <h1 style={{color: "green"}}>BOOKED!</h1> : null}
+            {gig.agent_id === user.id && user.isAgent === null && gig.gig_applications.length > 0 && !approvedGigs ? <h1 style={{color: "red"}} onClick={() => openViewModal()}>ATTentioN</h1> : null}
             <h2>Gig at {gig.venue}</h2>
-            <h3>{gig.date}</h3>
-            <h3>{gig.time}pm</h3>
-            <h3>{gig.genres}</h3>
-            <h3>{gig.description}</h3>
-            {/* {gig.gig_application ? <h1>HELLO</h1> : null} */}
-            {gig.agent_id === user.id && user.isAgent === null ? <button onClick={() => openEditModal(gig)}>Edit your post</button> : <button onClick={() => openModal(gig)}>View Details</button>}
+            <h3>Date: {gig.date}</h3>
+            <h3>Time: {gig.time}pm</h3>
+            <h3>Genres: {gig.genres}</h3>
+            {gig.agent_id === user.id && user.isAgent === null && !approvedGigs ? <button onClick={() => openEditModal(gig)}>Edit your post</button> : <button onClick={() => openModal(gig)}>View Details</button>}
         </div>  
         {
             editModalOpen ? 
