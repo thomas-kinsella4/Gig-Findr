@@ -72,7 +72,7 @@ function AgentProfileGigs({ gig, keepTrack }) {
             {gig.gig_applications.length > 0 && !approvedGigs ? <h1 style={{color: "red"}} onClick={() => openViewModal()}>ATTentioN</h1> : null}
             <h2>Gig at {gig.venue}</h2>
             <h3>{gig.date}</h3>
-            <h3>{gig.time}pm</h3>
+            <h3>{gig.time}{gig.timetwo}</h3>
             <h3>{gig.genres}</h3>
             {gig.agent_id === user.id && user.isAgent === null && gig.gig_applications.length > 0 && approvedGigs ? null : <button onClick={openUpModal}>Edit</button>}
             {/* {gig.gig_applications.length > 0 && !approvedGigs ? <button onClick={openUpModal}>Edit</button> : null} */}

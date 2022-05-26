@@ -36,7 +36,7 @@ class GigsController < ApplicationController
     end
 
     def gig_params
-        params.permit(:venue, :date, :time, :genres, :description, :agent_id)
+        params.permit(:venue, :date, :time, :timetwo, :genres, :description, :agent_id)
     end
 
 end

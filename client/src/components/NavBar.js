@@ -13,7 +13,7 @@ function NavBar() {
             method: "DELETE"
         })
         .then(() => {
-        navigateTo("/") 
+        navigateTo("/loggingout") 
         setUser({})
         })
         .catch( error => console.log(error.message));

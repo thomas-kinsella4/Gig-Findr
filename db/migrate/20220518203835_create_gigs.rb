@@ -4,6 +4,7 @@ class CreateGigs < ActiveRecord::Migration[6.1]
       t.integer :agent_id
       t.string :venue
       t.integer :time
+      t.string :timetwo
       t.string :date
       t.string :genres
       t.string :description

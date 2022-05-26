@@ -49,8 +49,25 @@ function AgentEditGig({ closeUpModal, selectedEdit }) {
             <input placeholder={selectedEdit.venue} name="venue" onChange={handleEditInputs} value={editFormData.venue}></input>
             <label>Date:</label>
             <input placeholder={selectedEdit.date} name="date" onChange={handleEditInputs} value={editFormData.date}></input>
-            <label>Time:</label>
-            <input placeholder={selectedEdit.time} name="time" onChange={handleEditInputs} value={editFormData.time}></input>
+            <select name="time" onChange={handleEditInputs} value={editFormData.time} >
+                <option value={selectedEdit.time}>{selectedEdit.time}</option>
+                <option value={12}>12</option>
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+                <option value={5}>5</option>
+                <option value={6}>6</option>
+                <option value={7}>7</option>
+                <option value={8}>8</option>
+                <option value={9}>9</option>
+                <option value={10}>10</option>
+                <option value={11}>11</option>
+            </select>
+            <select name="timetwo" onChange={handleEditInputs} value={editFormData.timetwo}>
+                <option value="pm">PM</option>
+                <option value="am">AM</option>
+            </select>
             <label>Genres:</label>
             <input placeholder={selectedEdit.genres} name="genres" onChange={handleEditInputs} value={editFormData.genres}></input>
             <label>Description:</label>

@@ -47,7 +47,7 @@ function ArtistsShows({ gig, userGigApps }) {
                 <button onClick={closeDetails}>X</button>
                 <h2>Gig at {gig.venue}</h2>
                 <h3>{gig.date}</h3>
-                <h3>{gig.time}pm</h3>
+                <h3>{gig.time}{gig.timetwo}</h3>
                 <h3>{gig.genres}</h3>
                 <h3>Status: <span style={{"color": "yellow"}}>PENDING APPROVAL</span></h3> 
                 </>
