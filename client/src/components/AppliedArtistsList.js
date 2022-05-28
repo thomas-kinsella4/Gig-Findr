@@ -43,17 +43,17 @@ function AppliedArtistsList({ gig, artist, filteredGigApps , keepTrack}) {
 
     return (
         <>
-        <h1>{artist.username}</h1>
-        <button onClick={() => handleViewClick()}>View {artist.username}'s profile</button>
-        <button onClick={handleBookArtistClick}>Book {artist.username}</button>
+        <h1 className="applied-gig-text-header">{artist.username}</h1>
+        <button className="view-button" onClick={() => handleViewClick()}>View {artist.username}'s profile</button>
+        <button className="view-button" onClick={handleBookArtistClick}>Book {artist.username}</button>
         {
             isModalOpen ?
             <>
             <div className="overlay"></div>
             <div className="modal">
                 <>
-                <h1>{artist.username}</h1>
-                <h2>{artist.bio}</h2>
+                <h1 className="applied-gig-text-header">{artist.username}</h1>
+                {/* <h2>{artist.bio}</h2> */}
                 <img></img>
                 <button onClick={navigateTo("/view/artist")}>View full profile</button>
                 </>

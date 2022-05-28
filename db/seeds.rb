@@ -221,6 +221,156 @@ Gig.create(
     description: "Country show baby"
 )
 
+Gig.create(
+    agent_id: rand(1..4),
+    venue: "Mercury Lounge",
+    time: 8,
+    timetwo: "pm",
+    date: "06/11/2022",
+    genres: "Country",
+    description: "Country show baby"
+)
+
+Gig.create(
+    agent_id: rand(1..4),
+    venue: "Mercury Lounge",
+    time: 8,
+    timetwo: "pm",
+    date: "06/11/2022",
+    genres: "Country",
+    description: "Country show baby"
+)
+
+Gig.create(
+    agent_id: rand(1..4),
+    venue: "Mercury Lounge",
+    time: 8,
+    timetwo: "pm",
+    date: "06/11/2022",
+    genres: "Country",
+    description: "Country show baby"
+)
+
+Gig.create(
+    agent_id: rand(1..4),
+    venue: "Mercury Lounge",
+    time: 8,
+    timetwo: "pm",
+    date: "06/11/2022",
+    genres: "Country",
+    description: "Country show baby"
+)
+
+Gig.create(
+    agent_id: rand(1..4),
+    venue: "Mercury Lounge",
+    time: 8,
+    timetwo: "pm",
+    date: "06/11/2022",
+    genres: "Country",
+    description: "Country show baby"
+)
+
+Gig.create(
+    agent_id: rand(1..4),
+    venue: "Mercury Lounge",
+    time: 8,
+    timetwo: "pm",
+    date: "06/11/2022",
+    genres: "Country",
+    description: "Country show baby"
+)
+
+Gig.create(
+    agent_id: rand(1..4),
+    venue: "Mercury Lounge",
+    time: 8,
+    timetwo: "pm",
+    date: "06/11/2022",
+    genres: "Country",
+    description: "Country show baby"
+)
+
+Gig.create(
+    agent_id: rand(1..4),
+    venue: "Mercury Lounge",
+    time: 8,
+    timetwo: "pm",
+    date: "06/11/2022",
+    genres: "Country",
+    description: "Country show baby"
+)
+
+Gig.create(
+    agent_id: rand(1..4),
+    venue: "Mercury Lounge",
+    time: 8,
+    timetwo: "pm",
+    date: "06/11/2022",
+    genres: "Country",
+    description: "Country show baby"
+)
+
+Gig.create(
+    agent_id: rand(1..4),
+    venue: "Mercury Lounge",
+    time: 8,
+    timetwo: "pm",
+    date: "06/11/2022",
+    genres: "Country",
+    description: "Country show baby"
+)
+
+Gig.create(
+    agent_id: rand(1..4),
+    venue: "Mercury Lounge",
+    time: 8,
+    timetwo: "pm",
+    date: "06/11/2022",
+    genres: "Country",
+    description: "Country show baby"
+)
+
+Gig.create(
+    agent_id: rand(1..4),
+    venue: "Mercury Lounge",
+    time: 8,
+    timetwo: "pm",
+    date: "06/11/2022",
+    genres: "Country",
+    description: "Country show baby"
+)
+
+Gig.create(
+    agent_id: rand(1..4),
+    venue: "Mercury Lounge",
+    time: 8,
+    timetwo: "pm",
+    date: "06/11/2022",
+    genres: "Country",
+    description: "Country show baby"
+)
+
+Gig.create(
+    agent_id: rand(1..4),
+    venue: "Mercury Lounge",
+    time: 8,
+    timetwo: "pm",
+    date: "06/11/2022",
+    genres: "Country",
+    description: "Country show baby"
+)
+
+Gig.create(
+    agent_id: rand(1..4),
+    venue: "Mercury Lounge",
+    time: 8,
+    timetwo: "pm",
+    date: "06/11/2022",
+    genres: "Country",
+    description: "Country show baby"
+)
+
 
 
 puts("done seeding")

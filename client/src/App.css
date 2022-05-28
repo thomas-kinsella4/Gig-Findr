@@ -1,13 +1,19 @@
-#post {
-  border: 2px solid red;
-  max-width: fit-content;
-  margin: 2em;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+body {
+  background-color: pink;
+  color: white;
 }
 
-.navbar-div {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 2em;
+/* MAIN FEED/////////////////////////////////////////////////////// */
+
+#post {
+  border: 2px solid white;
+  /* border-radius: 3%; */
+  max-width: fit-content;
+  margin: 2em;
+  max-height: 120px;
 }
 
 .overlay {
@@ -25,10 +31,10 @@
 .modal {
   position: fixed;
   z-index: 20;
-  background: rgba(248, 243, 243, 0.85);
+  background: pink;
   width: 70vw;
   border-radius: 1em;
-  box-shadow: 2px 2px 10px 5px #ddd5d5;
+  box-shadow: 2px 2px 10px 5px rgb(247, 199, 206);
 
 
   /* Center the modal */
@@ -37,11 +43,475 @@
   transform: translateX(-50%) translateY(-50%);
 }
 
+.feed-row {
+  display: flex;
+}
+
+.feed-side-column {
+  width: 25%;
+  text-align: center;
+}
+
+.feed-middle-column {
+  width: 50%;
+  border-left: 2px solid #F7F7FF;
+  border-right: 2px solid #F7F7FF;
+  text-align: center;
+}
+
+#post {
+  display: flex;
+  align-self: center;
+}
+
+@keyframes changeLogoColor {
+  0% {
+    color: #9600CC;
+  }
+  25% {
+    color: #FF35FE;
+  }
+  50% {
+    color: #479AFF;
+  }
+  75% {
+    color: #F7F7FF;
+  }
+  100% {
+    color: #735fda;
+  }
+}
+
+.feed-letters {
+  animation-name: changeLogoColor;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  color: #9600CC;
+  transition-duration: 2s;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  display: block;
+  /* padding-bottom: 0.25em;
+  padding-top: 0.25em; */
+  font-size: 20em;
+}
+
+.input-label {
+  padding: 1em;
+  font-size: 2em;
+  font-family: 'IBM Plex Mono', monospace;
+  color: white;
+}
+
+.search-input {
+  padding: .75em;
+  background-color: pink;
+  border: 1.5px solid white;
+  border-radius: 5%;
+  font-size: larger;
+  color: white;
+  transition: 0.5s;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+}
+
+.search-input:focus {
+  outline: none;
+  /* box-shadow: 2px 2px 2px #FF35FE, -2px -2px 2px #FF35FE, inset 2px 0px 2px #FF35FE; */
+}
+
+.gig-text-venue {
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  color:#479AFF;
+}
+
+.gig-text {
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+}
+
+.gigpost-btn {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  font-family: 'IBM Plex Mono', monospace;
+  border-left: 2px solid #479AFF;
+  transition: 0.75s;
+  width: 100px;
+  text-transform: uppercase;
+}
+
+.gigpost-btn:hover {
+  background-color: #479AFF;
+}
+
+/* HEADER ////////////////////////////////////////////////////////////// */
+
+#logo-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.header-text {
+  padding-right: 1em;
+}
+
+.welcome-header {
+  display: flex;
+  justify-content: flex-end;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+#logo {
+  animation-name: changeLogoColor;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  font-family: 'IBM Plex Mono', monospace;
+  margin-bottom: 2em;
+  margin-left: 0.5em;
+  margin-top: 1em;
+  font-size: 12em;
+}
+
+#logo:hover {
+  cursor: pointer;
+}
+
+#hidden-scroll-div {
+  padding-bottom: 8em;
+}
+
+#navbar-username {
+  animation-name: changeLogoColor;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* NAVBAR /////////////////////////////////////////////////////////////// */
+.navbar-div {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1em;
+  align-items: flex-start;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2em;
+}
+
+.no-user-navbar-div {
+  display: flex;
+  padding-top: 2em;
+  transition: 1s;
+}
+
+/* .scrolled-navbar-div {
+  display: flex;
+  padding-top: 2em;
+  justify-content: center;
+  background-color: white;
+  transition: 1s;
+} */
+
+.nav-btn {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  margin-left: 1em;
+  color: white;
+  text-transform: uppercase;
+}
+
+/* .scrolled-nav-btn {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  color: pink;
+  transition: 1s;
+} */
+
+.nav-btn:hover {
+  text-decoration: underline;
+  transition: 1s;
+}
+
+hr {
+  max-width: 75%;
+  color: white;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2em;
+  transition: 1s;
+}
+
+/* MODAL DETAILS //////////////////////////////////////////////////////////////////// */
+
+.modal-x-btn {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.5em;
+  padding-left: 0.5em;
+  padding-top: 0.25em;
+  transition: 0.5s;
+}
+
+.modal-x-btn:hover {
+  color:#479AFF;
+}
+
+.modal-row {
+  display: flex;
+}
+
+.modal-column-left {
+  width: 50%;
+  text-align: center;
+  margin: auto;
+  border-right: 1px solid white;
+}
+
+.modal-column-right {
+  width: 50%;
+  text-align: center;
+  margin: auto;
+}
+
+.details-labels {
+  text-decoration: underline;
+}
+
+.gig-text-header {
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  font-size: 5.5em;
+  color:#479AFF;
+}
+
+.modal-bottom-div {
+  display: flex;
+  justify-content: center;
+  padding: 0.75em;
+}
+
+.message-text-login {
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  font-size: larger;
+  animation-name: changeLogoColor;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.button {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.5em;
+  padding-bottom: 0.75em;
+  transition: 0.5s;
+  text-transform: uppercase;
+}
+
+.button:hover {
+  color:#479AFF;
+}
+
+.apply-button {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.5em;
+  padding: 0.75em;
+  transition: 0.5s;
+  text-transform: uppercase;
+}
+
+.apply-button:hover {
+  color:#479AFF;
+}
+
+/* AGENT MODAL EDIT FROM MAIN ////////////////////////////////////////////////////// */
+
+.form-input {
+  padding: .75em;
+  background-color: pink;
+  border: 1.5px solid white;
+  border-radius: 5%;
+  font-size: 1em;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  margin: 1em;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.form-input:focus {
+  outline: none;
+}
+
+.form-input-label {
+  display: block;
+  font-size: 1.5em;
+  font-family: 'IBM Plex Mono', monospace;
+  color: white;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.top-edit-div {
+  display: flex;
+}
+
+.edit-gig-text-header {
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  font-size: 4.5em;
+  color:#479AFF;
+}
+
+.edit-modal-x-btn {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.5em;
+  padding-left: 0.5em;
+  padding-top: 0.25em;
+  transition: 0.5s;
+}
+
+.edit-modal-x-btn:hover {
+  color:#479AFF;
+}
+
+.notification-flag {
+  color:red;
+  animation: notify 1.5s linear infinite;
+}
+
+.notification-flag:hover {
+  cursor: pointer;
+}
+
+@keyframes notify {
+  0% {
+   opacity: 0;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.applied-gig-text-header {
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  font-size: 2.5em;
+  color:#479AFF;
+}
+
+.view-button {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.25em;
+  padding: 0.75em;
+  transition: 0.5s;
+  text-transform: uppercase;
+}
+
+.view-button:hover {
+  color:#479AFF;
+}
+
+.booked-gig-text {
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  color: #479AFF;
+}
+
+/* ARTIST YOUR SHOWS /////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+#artist-shows-page {
+  align-self: baseline;
+}
+
+.view-row {
+  display: flex;
+  text-align: center;
+}
 
 
-
-
-
+.view-middle-column {
+  margin-top: 5em;
+  width: 50%;
+  text-align: -webkit-center;
+  border-left: 2px solid #F7F7FF;
+  border-right: 2px solid #F7F7FF;
+}
 
 
 

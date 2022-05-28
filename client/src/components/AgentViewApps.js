@@ -22,7 +22,6 @@ function AgentViewApps({ gig, closeViewModal, keepTrack }) {
 
     const appsArtists = filteredGigApps.map((artist) => {
         return <AppliedArtistsList key={artist.artist.id} artist={artist.artist} filteredGigApps={filteredGigApps} keepTrack={keepTrack} gig={gig}/>
-        // console.log("from map: ", artist.artist)
     })
 
 
@@ -30,8 +29,10 @@ function AgentViewApps({ gig, closeViewModal, keepTrack }) {
 
     return (
         <>
-            <button onClick={closeViewModal}>X</button>
-            <h1>The following artists have applied to this gig:</h1>
+            <div className="top-edit-div">
+                <button className="edit-modal-x-btn" onClick={closeViewModal}>X</button>
+            </div>
+            <h1 className="gig-text">The following artists have applied to play this gig:</h1>
             {appsArtists}
         </>
     )

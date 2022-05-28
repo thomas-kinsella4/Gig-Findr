@@ -22,22 +22,24 @@ function NavBar() {
 
     return (
         <>
-        
             <div className="navbar-div">
                 {user.isAgent === null ? 
                 <>
-                <button onClick={() => navigateTo("/agent/profile")}>Profile</button>
-                <button onClick={() => navigateTo("/")}>Home</button>
-                <button onClick={handleLogOut}>Logout</button> 
+                <button className="nav-btn" onClick={() => navigateTo("/")}>Home</button>
+                <button className="nav-btn" onClick={() => navigateTo("/agent/profile")}>Profile</button>
+                <button className="nav-btn" onClick={handleLogOut}>Logout</button> 
                 </>
             : 
                 <>
-                <button onClick={() => navigateTo("/artist/profile")}>Profile</button>
-                <button onClick={() => navigateTo("/artist/shows")}>Your Shows</button>
-                <button onClick={() => navigateTo("/")}>Home</button>
-                <button onClick={handleLogOut}>Logout</button>
+                <button className="nav-btn" onClick={() => navigateTo("/")}>HOME</button>
+                <button className="nav-btn" onClick={() => navigateTo("/artist/profile")}>PROFILE</button>
+                <button className="nav-btn" onClick={() => navigateTo("/artist/shows")}>YOUR GIGS</button>
+                <button className="nav-btn" onClick={handleLogOut}>LOGOUT</button>
                 </>
             }
+            </div>
+            <div className="welcome-header">
+                    <h2 className="header-text">WELCOME BACK, <span id="navbar-username">{user.username}</span></h2>
             </div>
         </>
     )

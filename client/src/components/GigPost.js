@@ -2,6 +2,8 @@ import React, { useState, useContext } from "react";
 import { UserContext } from "../context/user";
 import AgentEditFromMain from "./AgentEditFromMain";
 import AgentViewApps from "./AgentViewApps";
+import { AiFillAlert } from "react-icons/ai";
+import { AiOutlineCheck } from "react-icons/ai";
 
 function GigPost({ gig, openModal, keepTrack  }) {
 
@@ -13,7 +15,9 @@ function GigPost({ gig, openModal, keepTrack  }) {
         return gig.isApproved === true
     })
 
-    console.log("from gigpost: ", gig.artist_id)
+    console.log("approved gigs: ", approvedGigs)
+
+    // console.log("from gigpost: ", gig.artist_id)
 
     function openEditModal(){
         setEditModalOpen(true)
@@ -34,15 +38,14 @@ function GigPost({ gig, openModal, keepTrack  }) {
     return (
         <>
         <div id="post">
-            {gig.gig_applications.length > 0 && approvedGigs ? <h1 style={{color: "green"}}>THIS SHOW HAS BEEN BOOKED!</h1> : null}
+            {/* {gig.gig_applications.length > 0 && approvedGigs && user.socialmedia_links === null ? <h1 style={{color: "green"}} onClick={() => openModal(gig)} className="notification-flag"><AiFillBell /></h1> : null} */}
             {/* {approvedGigs.artist_id === user.id && user.isAgent === undefined && gig.gig_applications.length > 0 && approvedGigs ? <h1 style={{color: "green"}}>You have been BOOKED! for this show</h1> : null} */}
-            {gig.agent_id === user.id && user.isAgent === null && gig.gig_applications.length > 0 && approvedGigs ? <h1 style={{color: "green"}}>BOOKED!</h1> : null}
-            {gig.agent_id === user.id && user.isAgent === null && gig.gig_applications.length > 0 && !approvedGigs ? <h1 style={{color: "red"}} onClick={() => openViewModal()}>ATTentioN</h1> : null}
-            <h2>Gig at {gig.venue}</h2>
-            <h3>Date: {gig.date}</h3>
-            <h3>Time: {gig.time}{gig.timetwo}</h3>
-            <h3>Genres: {gig.genres}</h3>
-            {gig.agent_id === user.id && user.isAgent === null && !approvedGigs ? <button onClick={() => openEditModal(gig)}>Edit your post</button> : <button onClick={() => openModal(gig)}>View Details</button>}
+            {gig.agent_id === user.id && user.isAgent === null && gig.gig_applications.length > 0 && approvedGigs ? <h1 style={{color: "green"}} className="notification-flag" onClick={() => openModal(gig)}><AiOutlineCheck /></h1> : null}
+            {gig.agent_id === user.id && user.isAgent === null && gig.gig_applications.length > 0 && !approvedGigs ? <h1 className="notification-flag" onClick={() => openViewModal()}><AiFillAlert onClick={() => openViewModal()}/></h1> : null}
+            <h2 className="gig-text-venue">Gig at {gig.venue}</h2>
+            <h3 className="gig-text">Date: {gig.date}</h3>
+            <h3 className="gig-text">Genres: {gig.genres}</h3>
+            {gig.agent_id === user.id && user.isAgent === null && !approvedGigs ? <button className ="gigpost-btn" onClick={() => openEditModal(gig)}>Edit your post</button> : <button className ="gigpost-btn" onClick={() => openModal(gig)}>View Details</button>}
         </div>  
         {
             editModalOpen ? 

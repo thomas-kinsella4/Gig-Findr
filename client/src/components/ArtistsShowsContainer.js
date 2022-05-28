@@ -40,9 +40,23 @@ function ArtistsShowsContainer() {
 
     return (
         <>
-        <NavBar />
-        <h1>{user.username}'s shows</h1>
-        {renderedArtistGigs}
+        
+            <div id="navbar" className="sticky">
+            <NavBar />
+            </div>
+            <div className="view-row">
+                <div className="feed-side-column">
+
+                </div>
+                <section className="view-middle-column">
+                    <h1 className="gig-text-header">your gigs</h1>
+                    {renderedArtistGigs}
+                </section>
+                <div className="feed-side-column">
+
+                </div>
+            </div>
+      
         </>
     )
 }
