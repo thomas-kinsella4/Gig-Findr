@@ -4,6 +4,8 @@ import { UserContext } from "../context/user";
 import NavBar from "./NavBar";
 import AgentProfileGigs from "./AgentProfileGigs";
 import AgentCreateGig from "./AgentCreateGig";
+import Axios from "axios";
+import { Image } from "cloudinary-react";
 
 
 function AgentProfile({ keepTrack }) {
@@ -35,12 +37,27 @@ function AgentProfile({ keepTrack }) {
         return <AgentProfileGigs key={gig.id} gig={gig} keepTrack={keepTrack}/>
     })
 
-    console.log("filtered: ", filteredGigs)
+    function uploadImage(files) {
+        const formData = new FormData()
+        formData.append("file", files[0])
+        formData.append("upload_preset", "jihpjhsw")
+
+       Axios.post("https://api.cloudinary.com/v1_1/dpffchccp/image/upload", 
+       formData
+       ).then((res) => 
+       console.log(res.data.public_id))
+    };
+
 
 
     return (
         <>
         <NavBar />
+        <input type="file" onChange={(e) => {uploadImage(e.target.files)}}></input>
+        <Image style={{"width": 200}} cloudName="dpffchccp" publicId={user.profile_img}/>
+        <audio className="audio-player" controls>
+            <source src="https://res.cloudinary.com/dpffchccp/video/upload/v1653758763/MissYouDemoV3_wj7cze.wav" type="audio"></source>
+        </audio>
         {
             createModalOpen ? 
             <>

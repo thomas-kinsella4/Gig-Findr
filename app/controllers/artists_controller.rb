@@ -1,5 +1,5 @@
 class ArtistsController < ApplicationController
-
+before_action :find_artist, only: [:update]
     def index
         render json: Artist.all, status: 202
     end
@@ -8,6 +8,11 @@ class ArtistsController < ApplicationController
         artist = Artist.create!(artist_params)
         session[:artist_id] = artist.id
         render json: artist, status: :created
+    end
+
+    def update
+        @artist.update(artist_params)
+        render json: @artist, status: :accepted
     end
 
     def show
@@ -26,7 +31,11 @@ class ArtistsController < ApplicationController
 
     private 
 
+    def find_artist
+        @artist = Artist.find(params[:id])
+    end
+
     def artist_params
-        params.permit(:username, :password, :password_confirmation)
+        params.permit(:username, :password, :password_confirmation, :profile_img, :song1, :song2, :song3, :bio)
     end
 end

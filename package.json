@@ -11,6 +11,8 @@
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
   },
   "dependencies": {
+    "axios": "^0.27.2",
+    "cloudinary-react": "^1.7.2",
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.3.0"
   }

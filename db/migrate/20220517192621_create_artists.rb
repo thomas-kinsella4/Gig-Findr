@@ -7,7 +7,9 @@ class CreateArtists < ActiveRecord::Migration[6.1]
       t.string :cover_img
       t.string :bio
       t.string :socialmedia_links
-      t.string :music
+      t.string :song1
+      t.string :song2
+      t.string :song3
       t.string :video
 
       t.timestamps

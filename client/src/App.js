@@ -11,6 +11,7 @@ import AgentViewArtistProfile from './components/AgentViewArtistProfile';
 import { useEffect, useContext, useState } from "react";
 import { UserContext } from "./context/user";
 import ArtistsShowsContainer from './components/ArtistsShowsContainer';
+import ArtistCustomizeForm from './components/ArtistCustomizeForm';
 
 
 
@@ -58,12 +59,14 @@ function App() {
         <Route path="/artist/profile" element={<ArtistProfile />} />
         <Route path="/artist/shows" element={<ArtistsShowsContainer />} />
         <Route path="/view/artist" element={<AgentViewArtistProfile selectedArtist={selectedArtist}/>} />
+        <Route path="/artist/customize" element={<ArtistCustomizeForm />} />
         <Route path="/updating" element={<Loading message={"Updating your changes..."} destination={"/agent/profile"}/>} />
         <Route path="/creating" element={<Loading message={"Creating..."} destination={"/agent/profile"}/>} />
         <Route path="/booking" element={<Loading message={"Confiming booking..."} destination={"/agent/profile"}/>} />
         <Route path="/loggingout" element={<Loading message={"Logging out..."} destination={"/"}/>} />
         <Route path="/applying" element={<Loading message={"Applying..."} destination={"/artist/shows"}/>} />
         <Route path="/signingup" element={<Loading message={"Creating your account..."} destination={"/login"}/>} />
+        <Route path="/artist/signingup" element={<Loading message={"Creating your account..."} destination={"/artist/customize"}/>} />
       </Routes>
     </Router>
     )

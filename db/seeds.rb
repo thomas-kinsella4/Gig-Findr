@@ -6,16 +6,15 @@ GigApplication.delete_all
 
 puts("making new")
 
-Artist.create(
-    username: "Me + Nobody",
-    password: "pass",
-    profile_img: nil,
-    cover_img: nil,
-    bio: nil,
-    socialmedia_links: nil,
-    music: nil,
-    video: nil
-)
+# Artist.create(
+#     username: "Me + Nobody",
+#     password: "pass",
+#     profile_img: nil,
+#     cover_img: nil,
+#     bio: nil,
+#     socialmedia_links: nil,
+#     video: nil
+# )
 
 Artist.create(
     username: "Wes Bourke",
@@ -24,7 +23,6 @@ Artist.create(
     cover_img: nil,
     bio: nil,
     socialmedia_links: nil,
-    music: nil,
     video: nil
 )
 
@@ -35,7 +33,6 @@ Artist.create(
     cover_img: nil,
     bio: nil,
     socialmedia_links: nil,
-    music: nil,
     video: nil
 )
 

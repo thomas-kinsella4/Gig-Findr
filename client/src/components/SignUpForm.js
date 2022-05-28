@@ -47,7 +47,7 @@ function SignUpForm() {
                 res.json().then(data => {
                     setErrors(null)
                     setUser(data)
-                    navigateTo("/signingup")
+                    navigateTo("/artist/signingup")
                 })
             } else {
                 res.json().then(res => {
