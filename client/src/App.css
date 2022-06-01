@@ -2,7 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
 
 body {
-  background-color: pink;
+  /* background-color: pink; */
+  background-color: #000000;
   color: white;
 }
 
@@ -31,7 +32,7 @@ body {
 .modal {
   position: fixed;
   z-index: 20;
-  background: pink;
+  background: black;
   width: 70vw;
   border-radius: 1em;
   box-shadow: 2px 2px 10px 5px rgb(247, 199, 206);
@@ -62,7 +63,9 @@ body {
 #post {
   display: flex;
   align-self: center;
+  justify-content: center;
 }
+
 
 @keyframes changeLogoColor {
   0% {
@@ -106,7 +109,7 @@ body {
 
 .search-input {
   padding: .75em;
-  background-color: pink;
+  background-color: black;
   border: 1.5px solid white;
   border-radius: 5%;
   font-size: larger;
@@ -125,6 +128,7 @@ body {
   font-family: 'IBM Plex Mono', monospace;
   text-transform: uppercase;
   color:#479AFF;
+  padding-left: 0.25em;
 }
 
 .gig-text {
@@ -143,13 +147,16 @@ body {
   font-family: 'IBM Plex Mono', monospace;
   border-left: 2px solid #479AFF;
   transition: 0.75s;
-  width: 100px;
+  min-width: 100px;
+  max-width: 100px;
   text-transform: uppercase;
 }
 
 .gigpost-btn:hover {
   background-color: #479AFF;
 }
+
+
 
 /* HEADER ////////////////////////////////////////////////////////////// */
 
@@ -252,7 +259,7 @@ body {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 1.5em;
   margin-bottom: 1em;
-  color: pink;
+  color: black;
   transition: 1s;
 } */
 
@@ -386,7 +393,7 @@ hr {
 
 .form-input {
   padding: .75em;
-  background-color: pink;
+  background-color: black;
   border: 1.5px solid white;
   border-radius: 5%;
   font-size: 1em;
@@ -513,6 +520,293 @@ hr {
   border-right: 2px solid #F7F7FF;
 }
 
+/* ARTIST CUSTOMIZE FORM /////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.file-input {
+  display: none;
+}
+
+.custom-form-label {
+  cursor: pointer;
+  font-size: 2em;
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  display: block;
+  padding: 0.5em;
+}
+
+.custom-form-message {
+  font-size: 1.5em;
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+}
+
+.song-icon {
+  color: #479AFF;
+  font-size: 1em;
+}
+
+.custom-form-div {
+  /* display: flex; */
+  height: 100vh;
+  /* align-items: center;
+  justify-content: center; */
+  text-align: center;
+}
+
+.bio-input-box {
+  height: 5em;
+  padding: .75em;
+  background-color: black;
+  border: 1.5px solid white;
+  font-size: larger;
+  border-radius: 5%;
+  color: white;
+  transition: 0.5s;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+}
+
+.bio-input-box:focus {
+  outline: none;
+}
+
+/* ARTIST PROFILE /////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.artist-prof {
+  text-align: center;
+}
+
+.artist-img {
+  width: 20em;
+  padding: 2em;
+}
+
+.artist-song-div {
+  display: flex;
+  flex-flow: wrap;
+  max-width: 300px;
+  border: 2px solid white;
+  background-color: white;
+  padding-top: 1em;
+  margin-bottom: 2em;
+  border-radius: 1em;
+}
+
+.artist-song-logo {
+  color: #479AFF;
+  font-size: 15em;
+  width: 300px;
+}
+
+@keyframes changeSongColor {
+  0% {
+    color: #9600CC;
+  }
+  10% {
+    color: #FF35FE;
+  }
+  20% {
+    color: #F7F7FF;
+  }
+  30% {
+    color: #479AFF;
+  }
+  40% {
+    color: #00002C;
+  }
+  50% {
+    color: #cdb4db;
+  }
+  60% {
+    color: #735fda;
+  }
+  70% {
+    color: #e63946
+  }
+  80% {
+    color: #2ec4b6
+  }
+  90% {
+    color: #ffbe0b;
+  }
+  100% {
+    color: #38b000;
+  }
+}
+
+.playing-song {
+  color: #479AFF;
+  width: 300px;
+  animation-name: changeSongColor;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  font-size: 15em;
+}
+
+.artist-songs-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.audio-player {
+  padding: 2em;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: white;
+}
+
+audio::-webkit-media-controls-mute-button {
+  background-color: white;
+  border-radius: 50%;
+}
+
+audio::-webkit-media-controls-play-button {
+  background-color: #479AFF;
+  border-radius: 50%;
+}
+
+audio::-webkit-media-controls-current-time-display {
+  color: black;
+}
+
+audio::-webkit-media-controls-time-remaining-display {
+  color: black;
+}
+
+audio::-webkit-media-controls-timeline {
+  background-color: #479AFF;
+  border-radius: 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* AGENT VIEW ARTIST PROFILE /////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.agent-view-label {
+  color: #479AFF;
+}
+
+/* AGENT PROFILE /////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+#agent-prof-post {
+  border: 2px solid white;
+  /* border-radius: 3%; */
+  /* width: 300px; */
+  margin: 2em;
+}
+
+.create-button {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 2em;
+  padding-bottom: 0.75em;
+  transition: 0.5s;
+  text-transform: uppercase;
+}
+
+.create-button:hover {
+  color:#479AFF;
+}
+
+/* LOG IN/SIGNUP FORM /////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.login-div {
+  text-align: center;
+}
+
+.login-form-div {
+  border: 2px solid white;
+  margin-bottom: 5em;
+}
+
+.login-form-select {
+  padding: .75em;
+  background-color: black;
+  border: 1.5px solid white;
+  border-radius: 5%;
+  font-size: 1.5em;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  margin: 1em;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.login-form-select:focus {
+  outline: none;
+}
+
+.login-middle-column {
+  /* margin-top: 5em; */
+  width: 50%;
+  text-align: -webkit-center;
+  /* border-left: 2px solid #F7F7FF;
+  border-right: 2px solid #F7F7FF; */
+  margin-bottom: 5em;
+  border: 2px solid #F7F7FF;
+}
+
+#back-to-login-button {
+  background: none;
+   color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1em;
+  padding-bottom: 0.75em;
+  transition: 0.5s;
+  text-transform: uppercase;
+}
+
+#back-to-login-button:hover {
+  color:#479AFF;
+}
+
+.select-options {
+  background-color: red
+}
+
+
+/* LOADING PAGE /////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+#loading-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  display: inline-block;
+}
+
+#loading-text {
+  overflow: hidden;
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  font-size: 4.5em;
+  width: 0;
+  white-space: nowrap;
+  color:#F7F7FF;
+  animation: loading 1.25s forwards;
+}
+
+@keyframes loading {
+  from { width: 0 }
+  to { width: 100% }
+}
 
 
 
@@ -521,13 +815,29 @@ hr {
 
 
 
-
-
-
-
-
-
-
+@media only screen and (max-width: 1000px){
+  .gig-text-venue {
+    font-size: 1em;
+  }
+  .gigpost-btn {
+    font-size: 0.75em;
+  }
+  .gig-text {
+    font-size: 0.8em;
+  }
+  .feed-letters {
+    font-size: 12em;
+  }
+  .input-label {
+    font-size: 1em;
+  }
+  .search-input {
+    font-size: smaller;
+  }
+  #logo {
+    font-size: 9em;
+  }
+}
 
 
 

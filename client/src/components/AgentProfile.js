@@ -33,31 +33,40 @@ function AgentProfile({ keepTrack }) {
         return gig.agent_id === user.id
     })
 
-    const renderedGigs = filteredGigs.map((gig) => {
+    const sortedGigs = filteredGigs.sort((gig) => {
+        if (gig.gig_applications.length > 0) {
+            return -1
+        } 
+        if (gig.gig_applications < 1) {
+            return 1
+        }
+    })
+
+    const renderedGigs = sortedGigs.map((gig) => {
         return <AgentProfileGigs key={gig.id} gig={gig} keepTrack={keepTrack}/>
     })
 
-    function uploadImage(files) {
-        const formData = new FormData()
-        formData.append("file", files[0])
-        formData.append("upload_preset", "jihpjhsw")
-
-       Axios.post("https://api.cloudinary.com/v1_1/dpffchccp/image/upload", 
-       formData
-       ).then((res) => 
-       console.log(res.data.public_id))
-    };
 
 
 
     return (
         <>
-        <NavBar />
-        <input type="file" onChange={(e) => {uploadImage(e.target.files)}}></input>
-        <Image style={{"width": 200}} cloudName="dpffchccp" publicId={user.profile_img}/>
-        <audio className="audio-player" controls>
-            <source src="https://res.cloudinary.com/dpffchccp/video/upload/v1653758763/MissYouDemoV3_wj7cze.wav" type="audio"></source>
-        </audio>
+        <div id="navbar" className="sticky">
+            <NavBar />
+        </div>
+        <div className="view-row">
+                <div className="feed-side-column">
+
+                </div>
+                <section className="view-middle-column">
+                {/* <h1>{user.username}'s' Profile</h1> */}
+                <h2 className="gig-text-header">Your listed gigs:</h2>
+                <button className="create-button" onClick={openCreate}>Create new gig listing</button>
+                {renderedGigs}
+                </section>
+                <div className="feed-side-column">
+
+                </div>
         {
             createModalOpen ? 
             <>
@@ -69,10 +78,7 @@ function AgentProfile({ keepTrack }) {
             :
             null
         }
-        <h1>{user.username}'s' Profile</h1>
-        <button onClick={openCreate}>Create new listing</button>
-        <h2>Your listed gigs:</h2>
-        {renderedGigs}
+        </div>
         </>
     )
 }

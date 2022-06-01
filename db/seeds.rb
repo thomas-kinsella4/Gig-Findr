@@ -17,11 +17,11 @@ puts("making new")
 # )
 
 Artist.create(
-    username: "Wes Bourke",
+    username: "We$t coa$t we$",
     password: "pass",
     profile_img: nil,
     cover_img: nil,
-    bio: nil,
+    bio: "not gon' hate it, long hair don't care",
     socialmedia_links: nil,
     video: nil
 )

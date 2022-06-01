@@ -38,7 +38,7 @@ function LogInForm() {
                     res.json().then(data => {
                         setErrors(null)
                         setUser(data)
-                        navigateTo("/")
+                        navigateTo("/loggingin")
                     })
                 } else {
                     res.json().then(res => {
@@ -63,7 +63,7 @@ function LogInForm() {
                     res.json().then(data => {
                         setErrors(null)
                         setUser(data)
-                        navigateTo("/")
+                        navigateTo("/loggingin")
                     })
                 } else {
                     res.json().then(res => {
@@ -82,20 +82,32 @@ function LogInForm() {
 
 
     return (
-        <div style={{"padding" : "2em"}}>
-        <h1>Log In</h1>
-        <select onChange={handleLogInSelect}>
-            <option name="artist" value="artist">Artist</option>
-            <option name="agent" value="agent">Agent</option>
-        </select>
-        <button onClick={() => navigateTo("/signup")}>Sign up</button>
-        <form onSubmit={handleLogInSubmit}>
-            <label>Username:</label>
-            <input type="text" value={formData.username} name="username" onChange={handleChangeForm} required></input>
-            <label>Password:</label>
-            <input type="password" value={formData.password} name="password" onChange={handleChangeForm} required></input>
-            <button>Log In</button> {errors !== "" ? <p className="error-msg">{errors}</p> : null}
-        </form>
+        <div className="login-div">
+            <h1 className="edit-gig-text-header">Log In</h1>
+            <div className="view-row">
+                    <div className="feed-side-column">
+
+                    </div>
+                <section className="login-middle-column">
+                
+                <select className="login-form-select" onChange={handleLogInSelect}>
+                    <option style={{"color": "red"}} className="select-options" name="artist" value="artist">Artist</option>
+                    <option className="select-options" name="agent" value="agent">Agent</option>
+                </select>
+                {selectedAccnt === "artist" ? <p className="message-text-login">You are an artist looking to play gigs</p> : null}
+                {selectedAccnt === "agent" ? <p className="message-text-login">You are looking to book artists to perfom at your venues</p> : null}
+                <form onSubmit={handleLogInSubmit}>
+                    <label className="form-input-label">Username:</label>
+                    <input className="form-input" type="text" value={formData.username} name="username" onChange={handleChangeForm} required></input>
+                    <label className="form-input-label">Password:</label>
+                    <input className="form-input" type="password" value={formData.password} name="password" onChange={handleChangeForm} required></input>
+                    <br></br>
+                    <button className="button">Log In</button> {errors !== "" ? <p className="message-text-login">{errors}<br></br>check to make sure you selected the correct account type</p> : null}
+                </form>
+                <p className="gig-text">dont have an account? <button className="button" onClick={() => navigateTo("/signup")}>Sign up here</button></p>
+                
+                </section>
+            </div>
         </div>
     )
 }

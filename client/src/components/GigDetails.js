@@ -10,8 +10,6 @@ function GigDetails({ closeModal, selectedGig }) {
     const bookedShows = selectedGig.gig_applications.find((app) => {
         return app.isApproved === true;
     })
-    
-    console.log(bookedShows)
 
         useEffect(() => {
             if (bookedShows) {
@@ -68,6 +66,7 @@ function GigDetails({ closeModal, selectedGig }) {
                 <h1 className="gig-text-header">{selectedGig.venue}</h1>
             </div>
             <div className="modal-column-right">
+                {bookedShows ? <h1 className="gig-text" style={{"color": "green"}}>THIS GIG HAS BEEN BOOKED</h1> : null}
                 {
                     user.isAgent === null && bookedShows && user.id === selectedGig.agent_id ? 
                         <h1 className="booked-gig-text">You booked {bookedArtist.username} for this gig</h1>

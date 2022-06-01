@@ -5,7 +5,7 @@ function AppliedArtistsList({ gig, artist, filteredGigApps , keepTrack}) {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    console.log("filtered gig apps: ", filteredGigApps)
+    // console.log("filtered gig apps: ", filteredGigApps)
 
     let navigateTo = useNavigate();
 

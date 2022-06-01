@@ -15,8 +15,6 @@ function GigPost({ gig, openModal, keepTrack  }) {
         return gig.isApproved === true
     })
 
-    console.log("approved gigs: ", approvedGigs)
-
     // console.log("from gigpost: ", gig.artist_id)
 
     function openEditModal(){

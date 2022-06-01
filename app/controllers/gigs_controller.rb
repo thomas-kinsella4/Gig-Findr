@@ -3,7 +3,7 @@ class GigsController < ApplicationController
     before_action :find_gig, only: [:show, :update, :destroy]
 
     def index
-        render json: Gig.all, status: :ok
+        render json: Gig.all.sort_by(&:date), status: :ok
     end
 
     def show

@@ -13,7 +13,11 @@ function Loading({ message, destination }) {
 
     return (
         <>
-        <h1>{message}</h1>
+        <div id="loading-div">
+            <div className="container">
+                <h1 id="loading-text">{message}</h1>
+            </div>
+        </div>
         </>
     )
 }

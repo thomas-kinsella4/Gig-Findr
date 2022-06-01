@@ -48,15 +48,21 @@ function AgentCreateGig({ closeCreate }) {
 
     return (
         <>
-        <button onClick={closeCreate}>X</button>
-        <h1>create a new gig listing</h1>
+        <div className="top-edit-div">
+            <button className="edit-modal-x-btn" onClick={closeCreate}>X</button>
+        </div>
+        <div className="modal-row">
+        <div className="modal-column-left">
+                <h1 className="edit-gig-text-header">create a new gig listing</h1>
+        </div>
+        <div className="modal-column-right">
         <form onSubmit={handleCreateSubmit}>
-        <label>Venue:</label>
-            <input type="text "name="venue" onChange={handleCreateInputs} value={createFormData.venue}></input>
-            <label>Date:</label>
-            <input type="text" name="date" onChange={handleCreateInputs} value={createFormData.date}></input>
-            <label>Time:</label>
-            <select name="time" onChange={handleCreateInputs} value={createFormData.time}>
+        <label className="form-input-label">Venue:</label>
+            <input className="form-input" type="text "name="venue" onChange={handleCreateInputs} value={createFormData.venue}></input>
+            <label className="form-input-label">Date:</label>
+            <input className="form-input" type="text" name="date" onChange={handleCreateInputs} value={createFormData.date}></input>
+            <label className="form-input-label">Time:</label>
+            <select className="form-input" name="time" onChange={handleCreateInputs} value={createFormData.time}>
                 <option value={12}>12</option>
                 <option value={1}>1</option>
                 <option value={2}>2</option>
@@ -70,16 +76,19 @@ function AgentCreateGig({ closeCreate }) {
                 <option value={10}>10</option>
                 <option value={11}>11</option>
             </select>
-            <select name="timetwo" onChange={handleCreateInputs} value={createFormData.timetwo}>
+            <select className="form-input" name="timetwo" onChange={handleCreateInputs} value={createFormData.timetwo}>
                 <option value="pm">PM</option>
                 <option value="am">AM</option>
             </select>
-            <label>Genres:</label>
-            <input name="genres" onChange={handleCreateInputs} value={createFormData.genres}></input>
-            <label>Description:</label>
-            <input name="description" onChange={handleCreateInputs} value={createFormData.description}></input>
-            <button>Create</button>
+            <label className="form-input-label">Genres:</label>
+            <input className="form-input" name="genres" onChange={handleCreateInputs} value={createFormData.genres}></input>
+            <label className="form-input-label">Description:</label>
+            <input className="form-input" name="description" onChange={handleCreateInputs} value={createFormData.description}></input>
+            <br></br>
+            <button className="button">Create</button>
         </form>
+        </div>
+        </div>
         </>
     )
 }

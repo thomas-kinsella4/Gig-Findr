@@ -88,24 +88,35 @@ function SignUpForm() {
 
     return (
         <>
-            <h3>Sign up</h3>
-            <select onChange={handleSelectChange}>
+        <div className="login-div">
+            <h1 className="edit-gig-text-header">Sign up</h1>
+            <div className="view-row">
+                    <div className="feed-side-column">
+
+                    </div>
+            <section className="login-middle-column">
+            <select onChange={handleSelectChange} className="login-form-select">
                 <option name="artist" value="artist">Artist</option>
                 <option name="agent" value="agent">Agent</option>
             </select>
-            {selectedType === "artist" ? <p>You've selected to signup as an artist, you are looking to play shows</p> : null}
-            {selectedType === "agent" ? <p>You've selected to signup as an agent, you are looking to book artists to perfom at your venues</p> : null}
-            <button onClick={() => navigateTo("/login")}>Back to login</button>
+            {selectedType === "artist" ? <p className="message-text-login">You've selected to sign up as an artist,<br></br> you are looking to play gigs</p> : null}
+            {selectedType === "agent" ? <p className="message-text-login">You've selected to sign up as an agent,<br></br> you are looking to book artists to perfom at your venues</p> : null}
             {errors !== "" ? <p className="error-msg">{errors}</p> : null}
         <form onSubmit={handleSignUpSubmit}>
-            <label>Username:</label>
-            <input type="text" value={formData.username} name="username" onChange={handleFormChange} required></input>
-            <label>Password:</label>
-            <input type="text" value={formData.password} name="password" onChange={handleFormChange} required></input>
-            <label>Confirm Password:</label>
-            <input type="text" value={formData.confirm_password} name="confirm_password" onChange={handleFormChange} required></input>
-            <button>Sign Up</button>
+            <label className="form-input-label">Username:</label>
+            <input className="form-input" type="text" value={formData.username} name="username" onChange={handleFormChange} required></input>
+            <label className="form-input-label">Password:</label>
+            <input className="form-input" type="password" value={formData.password} name="password" onChange={handleFormChange} required></input>
+            <label className="form-input-label">Confirm Password:</label>
+            <input className="form-input" type="password" value={formData.confirm_password} name="confirm_password" onChange={handleFormChange} required></input>
+            <br></br>
+            <button className="button">Sign Up</button>
         </form>
+            <button onClick={() => navigateTo("/login")} id="back-to-login-button">Back to login</button>
+            </section>
+        </div>
+        </div>
+
         </>
     )
 }

@@ -28,6 +28,11 @@ function ArtistsShowsContainer() {
 
     // console.log("userGigs: ", userGigs);
 
+    // const sortedGigs = userGigs.map((gig) => {
+
+    // })
+
+
     const renderedArtistGigs = userGigs.map((gig) => {
         return <ArtistsShows key={gig.id} gig={gig} userGigApps={userGigApps}/>
     })

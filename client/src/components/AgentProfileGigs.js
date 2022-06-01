@@ -2,6 +2,8 @@ import React, { useContext, useState, useEffect } from "react";
 import { UserContext } from "../context/user";
 import AgentEditGig from "./AgentEditGig";
 import AgentViewApps from "./AgentViewApps";
+import { AiFillBell, AiFillAlert } from "react-icons/ai";
+
 
 function AgentProfileGigs({ gig, keepTrack }) {
     
@@ -66,15 +68,15 @@ function AgentProfileGigs({ gig, keepTrack }) {
             :
             null
         }
-        <div id="post">
-            {bookedArtist ? <h2>{bookedArtist.username} booked for this gig</h2> : null}
-            {gig.agent_id === user.id && user.isAgent === null && gig.gig_applications.length > 0 && approvedGigs ? <h1 style={{color: "green"}}>BOOKED!</h1> : null}
-            {gig.gig_applications.length > 0 && !approvedGigs ? <h1 style={{color: "red"}} onClick={() => openViewModal()}>ATTentioN</h1> : null}
-            <h2>Gig at {gig.venue}</h2>
-            <h3>{gig.date}</h3>
-            <h3>{gig.time}{gig.timetwo}</h3>
-            <h3>{gig.genres}</h3>
-            {gig.agent_id === user.id && user.isAgent === null && gig.gig_applications.length > 0 && approvedGigs ? null : <button onClick={openUpModal}>Edit</button>}
+        <div id="agent-prof-post">
+            {gig.agent_id === user.id && user.isAgent === null && gig.gig_applications.length > 0 && approvedGigs ? <h1 className="notification-flag" style={{"color": "green"}}><AiFillBell /></h1> : null}
+            {bookedArtist ? <h2 className="gig-text-venue" style={{"color": "green"}} onClick={() => console.log(bookedArtist)}>{bookedArtist.username} booked for this gig</h2> : null}
+            {gig.gig_applications.length > 0 && !approvedGigs ? <h1 className="notification-flag" onClick={() => openViewModal()}><AiFillAlert /></h1> : null}
+            <h2 className="gig-text-venue">Gig at {gig.venue}</h2>
+            <h3 className="gig-text">date: {gig.date}</h3>
+            <h3 className="gig-text">time: {gig.time}{gig.timetwo}</h3>
+            <h3 className="gig-text">genres: {gig.genres}</h3>
+            {gig.agent_id === user.id && user.isAgent === null && gig.gig_applications.length > 0 && approvedGigs ? null : <button onClick={openUpModal} className="apply-button">Edit</button>}
             {/* {gig.gig_applications.length > 0 && !approvedGigs ? <button onClick={openUpModal}>Edit</button> : null} */}
         </div>  
         </>
